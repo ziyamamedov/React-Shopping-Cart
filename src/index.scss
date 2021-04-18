@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  padding: 5rem;
+}
+.product-item {
+  margin-bottom: .5rem;
+  width: 350px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-name {
+    min-width: 100px;
+    text-align: center;
+  }
+}
+
+//Add-product form styles
+.add-new-product-block {
+  max-width: 150px;
+  margin-bottom: 20px;
+}

@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import ProductsList from "./components/ProductsList";
+import AddProductForm from "./components/AddProductForm";
+import AddProductBtn from "./components/AddProductBtn";
+import { useSelector } from "react-redux";
 
 function App() {
+  //If true the add-new-product form will open
+  const isFormActive = useSelector((store) => store.isFormActive);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container d-flex flex-column justify-content-center">
+        <div className="add-new-product-block">
+          <AddProductBtn />
+          {isFormActive && <AddProductForm />}
+        </div>
+        <ProductsList />
+      </div>
     </div>
   );
 }
