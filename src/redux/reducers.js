@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import * as types from "./action-types";
 
 const initialProductsState = [
   { id: 1, name: "Phone", orderedQuan: 0 },
@@ -7,19 +8,21 @@ const initialProductsState = [
   { id: 4, name: "Computer", orderedQuan: 0 },
 ];
 
-function productsReducer(state = initialProductsState, action) {
+function productsReducer(products = initialProductsState, action) {
   switch (action.type) {
-    case "ADD_PROD":
-      return [...state, action.payload];
+    case types.ADD_PROD:
+      return [...products, action.payload];
+    case types.DELETE_PROD:
+      return products.filter((prod) => prod.id !== action.payload);
     default:
-      return state;
+      return products;
   }
 }
 
 //Toggles add-new-product-form
 function addNewProdReducer(state = false, action) {
   switch (action.type) {
-    case "TOGGLE_FORM":
+    case types.TOGGLE_FORM:
       return !state;
     default:
       return state;

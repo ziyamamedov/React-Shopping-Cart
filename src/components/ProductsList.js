@@ -6,9 +6,13 @@ function ProductsList() {
 
   return (
     <ul className="products-list">
-      {products.map((prod) => (
-        <ProductItem key={prod.id} name={prod.name} />
-      ))}
+      {products.length === 0 ? (
+        <h3>No products</h3>
+      ) : (
+        products.map((prod) => (
+          <ProductItem key={prod.id} id={prod.id} name={prod.name} />
+        ))
+      )}
     </ul>
   );
 }
