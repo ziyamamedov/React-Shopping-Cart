@@ -1,6 +1,7 @@
 import ProductsList from "./components/ProductsList";
 import AddProductForm from "./components/AddProductForm";
 import AddProductBtn from "./components/AddProductBtn";
+import ShopCartDisplay from "./components/ShopCartDisplay";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="container d-flex flex-column justify-content-center">
+        <ShopCartDisplay />
         <div className="add-new-product-block">
           <AddProductBtn />
           {isFormActive && <AddProductForm />}

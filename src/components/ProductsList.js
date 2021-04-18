@@ -10,7 +10,12 @@ function ProductsList() {
         <h3>No products</h3>
       ) : (
         products.map((prod) => (
-          <ProductItem key={prod.id} id={prod.id} name={prod.name} />
+          <ProductItem
+            key={prod.id}
+            id={prod.id}
+            name={prod.name}
+            quan={prod.orderedQuan}
+          />
         ))
       )}
     </ul>

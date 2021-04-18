@@ -14,6 +14,18 @@ function productsReducer(products = initialProductsState, action) {
       return [...products, action.payload];
     case types.DELETE_PROD:
       return products.filter((prod) => prod.id !== action.payload);
+    case types.ADD_PR_QUAN:
+      return products.map((prod) =>
+        prod.id === action.payload
+          ? { ...prod, orderedQuan: prod.orderedQuan + 1 }
+          : prod
+      );
+    case types.REDUCE_PR_QUAN:
+      return products.map((prod) =>
+        prod.id === action.payload
+          ? { ...prod, orderedQuan: prod.orderedQuan - 1 }
+          : prod
+      );
     default:
       return products;
   }
